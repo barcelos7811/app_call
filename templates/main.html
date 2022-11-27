@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<header
+
+    class="o-header">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/template_main.css') }}">
+  <script src="/static/js/template.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+		<script type="text/javascript">
+			jQuery(window).load(function($){
+				atualizaRelogio();
+			});
+		</script>
+
+  <div align="center">
+  <h1>Call System T.I - CSTI</h1>
+  </div>
+
+  <div align="center">
+  <output>Date/Hour:</output>
+  <output id="data"></output>
+  <output id="hora"></output>
+  </div>
+
+  <div align="center">
+  <output >User:</output>
+  <output >no logged</output>
+  </div>
+
+</header>
+
+<main
+class="o-main">
+
+  <div>
+  <form action="/main" method="post">
+  <fieldset>
+    <legend>Acess information:</legend>
+    User:<br>
+
+    <input type="text" placeholder="vname"  name="vname" />
+    <br>
+    Password:<br>
+    <input type="password" name="password" value="123">
+    <br><br>
+    <button type="button" onclick="window.location.href='{{ url_for( 'search_call') }}';">Acesso</button>
+
+  </fieldset>
+  </form>
+</div>
+
+</main>
+
+<aside
+
+class="o-aside">
+<h1>Call System </h1>
+  <p>O sistema de chamado têm por objetivo manter chamados de T.I, o sistema atende a várias empresas prestadoras de serviços.</p>
+
+</aside>
+
+<footer
+
+class="o-footer">
+<output>© 2022–2022 RB Develoment Co.®, Inc. Todos os direitos reservados.</output>
+
+</footer>
+</html>

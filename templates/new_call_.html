@@ -1,0 +1,36 @@
+{% extends 'layout_.html' %}
+
+{% block content %}
+<form action="/new_call_" method="POST">
+<div class="div1">
+  <fieldset>
+    <h2>Create new Call</h2>
+    <br/>
+      Call:<br/>
+      <textarea id="story" name="description"
+          rows="5" cols="33" maxlength="100">
+It is where you must type your call...
+      </textarea><br/><br/>
+    <div>
+        Kind:<br/>
+        <input type="radio" name="id_kind" value="1" checked> Hardware<br>
+        <input type="radio" name="id_kind" value="2"> Software<br/><br/>
+    </div>
+
+  </fieldset>
+  </div>
+
+<div class="div1">
+
+  <fieldset>
+    <button type="submit" >SAVE YOUR CALL</button>
+    <button type="button" onclick="window.location.href='{{ url_for( 'return_search_call_' ) }}';">RETURN</button>
+  </fieldset>
+
+  </div>
+</form>
+
+{% endblock %}
+
+
+

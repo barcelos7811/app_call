@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<header
+
+    class="o-header">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/template_login.css') }}">
+  <script src="/static/js/template.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+		<script type="text/javascript">
+			jQuery(window).load(function($){
+				atualizaRelogio();
+			});
+		</script>
+
+  <div align="center">
+  <h1>Call System T.I - CSTI</h1>
+  </div>
+
+  <div align="center">
+  <output>Date/Hour:</output>
+  <output id="data"></output>
+  <output id="hora"></output>
+  </div>
+
+</header>
+
+<main
+class="o-main">
+</main>
+
+<aside
+
+class="o-aside">
+  <div align="center">
+  {% set msgs = get_flashed_messages() %}
+{% if msgs %}
+<div>
+<ul>
+{% for msg in msgs %}
+	<li>{{ msg }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+
+    <form action='/layout_' method="post">
+  <fieldset>
+    <legend>System Access:</legend>
+    <br>
+    User:<br>
+    <input type="text" placeholder=""  name="vname" />
+    <br>
+    Password:<br>
+    <input type="password" name="password" value="">
+    <br><br>
+    <button type="submit" >Login</button>
+<br><br>
+  </fieldset>
+  </form>
+  </div>
+
+</aside>
+
+<footer
+
+class="o-footer">
+<output>© 2022–2022 RB Develoment Co.®, Inc. Todos os direitos reservados.</output>
+
+</footer>
+</html>

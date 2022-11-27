@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<header
+        class="o-header">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+  <script src="/static/js/template.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+		<script type="text/javascript">
+			jQuery(window).load(function($){
+				atualizaRelogio();
+			});
+		</script>
+
+  <div align="center">
+  <h1>Call System T.I - CSTI</h1>
+  </div>
+
+  <div align="center">
+  <output>Date/Hour:</output>
+  <output id="data"></output>
+  <output id="hora"></output>
+  </div>
+
+  <div align="center">
+  <output>User:</output>
+  <output>{{ variavel }}</output>
+  </div>
+
+</header>
+
+<main
+class="o-main">
+<h1>MENU HERE </h1>
+  <p>MENU HERE.</p>
+<form action='/index' method="post">
+  <button type="submit" >index</button><br/>
+</form>
+  <button type="button" >call</button>
+
+  <nav>
+    <a href="/index">pagina principal</a>
+    <a href="/outros">outros</a>
+
+
+  </nav>
+
+
+</main>
+
+<aside
+
+class="o-aside">
+<h1>CONTENT HERE </h1>
+  <p>CONTENT HERE.</p>
+  {% block content %} {% endblock %}
+</aside>
+
+<footer
+
+class="o-footer">
+<output>© 2022–2022 RB Develoment Co.®, Inc. Todos os direitos reservados.</output>
+
+</footer>
+</html>

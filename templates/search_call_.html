@@ -1,0 +1,59 @@
+{% extends 'layout_.html' %}
+
+{% block content %}
+
+{% set msgs = get_flashed_messages() %}
+{% if msgs %}
+<div>
+<ul>
+{% for msg in msgs %}
+	<li>{{ msg }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+
+<form action="/list_call" method="POST">
+<div class="div1">
+  <h2>Search Call</h2>
+  <fieldset>
+    <legend>Search</legend>
+    Call:
+    <input type="text" name="pcall" value="">
+    <button type="submit" >FIND YOUR CALL</button>
+    <button type="button" onclick="window.location.href='{{ url_for( 'new_call_' ) }}';">NEW CALL</button>
+  <br/>
+  </fieldset>
+  </div>
+
+  <div class="div1">
+
+  <h2>List of the Calls:</h2>
+  <table class="table">
+  <thread>
+  <tr class="tr">
+    <th>id</th>
+    <th>call</th>
+    <th>user</th>
+    <th>kind</th>
+    <th>status</th>
+    <th>Edit | Delete</th>
+  </tr>
+  </thread>
+
+    {% for d in data %}
+    <tr>
+      <td>{{ d.id }}</td>
+      <td>{{ d.call }}</td>
+      <td>{{ d.user }}</td>
+      <td>{{ d.kind }}</td>
+      <td>{{ d.status }}</td>
+      <td><button type="button" onclick="window.location.href='/update_call_/{{d.id}}';">Edit</button> | <button type="button" onclick="window.location.href='/delete_call_/{{d.id}}';">Delete</button></td>
+    </tr>
+    {% endfor %}
+
+  </table>
+  </div>
+
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'layout_.html' %}
+
+{% block content %}
+<form action="/new_user_" method="POST">
+  <div class="div1">
+  <fieldset>
+
+    <h2>Create new User</h2>
+    <br/>
+    User:<br/>
+    <input type="text" name="name" value="" maxlength="30"><br/><br/>
+
+    Login:<br/>
+    <input type="text" name="login" value="" maxlength="20"><br/><br/>
+
+      Login:<br/>
+    <input type="text" name="email" value="" maxlength="20"><br/><br/>
+
+    Adm?<br/>
+    <input type="radio" name="id_admin" value="1"> yes<br>
+    <input type="radio" name="id_admin" value="2" checked> no<br/><br/>
+
+    Password:<br/>
+    <input type="password" name="password" value="" maxlength="8"><br/><br/>
+
+    Repeat Password:<br/>
+    <input type="password" name="repeat_password" value="" maxlength="8">
+
+  </fieldset>
+  </div>
+
+  <div class="div1">
+  <fieldset>
+    <button type="submit">SAVE YOUR USER</button>
+    <button type="button" onclick="window.location.href='{{ url_for( 'return_search_user_' ) }}';">RETURN</button>
+
+  </fieldset>
+  </div>
+</form>
+
+{% endblock %}

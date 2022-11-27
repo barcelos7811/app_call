@@ -1,0 +1,58 @@
+{% extends 'layout_.html' %}
+
+{% block content %}
+
+{% set msgs = get_flashed_messages() %}
+{% if msgs %}
+<div>
+<ul>
+{% for msg in msgs %}
+	<li>{{ msg }}</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+
+<form action="/list_user" method="POST">
+  <div class="div1">
+  <h2>Search User</h2>
+  <fieldset>
+    <legend>Search</legend>
+    User:
+    <input type="text" name="puser" value="">
+    <button type="submit">FIND YOUR USER</button>
+    <button type="button" onclick="window.location.href='{{ url_for( 'new_user_' ) }}';">NEW USER</button>
+  </fieldset>
+  </div>
+
+  <div class="div1">
+
+  <h2>List of the Users</h2>
+  <table class="table">
+    <thread>
+  <tr class="tr">
+    <th>Id</th>
+    <th>User</th>
+    <th>Login</th>
+    <th>E-mail</th>
+    <th>Admin</th>
+    <th>Edit | Delete</th>
+  </tr>
+  </thread>
+
+    {% for u in data %}
+    <tr>
+      <td>{{ u.id }}</td>
+      <td>{{ u.name }}</td>
+      <td>{{ u.login }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.admin }}</td>
+      <td><button type="button" onclick="window.location.href='/update_user_/{{u.id}}';">Edit</button> | <button type="button" onclick="window.location.href='/delete_user_/{{u.id}}';">Delete</button></td>
+    </tr>
+    {% endfor %}
+
+  </table>
+  </div>
+
+</form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'layout_.html' %}
+
+{% block content %}
+<form id="formSave" action="/update_user_/{{data.id}}" method="POST">
+<form id="formEdit" action="/update_user_/<int:id>">
+  <div class="div1">
+  <fieldset>
+    <h2>Edit User {{ data.id }}</h2>
+    <br/>
+
+    User:<br/>
+    <input type="text" name="name" value={{ data.name }} maxlength="30"><br/><br/>
+
+    Login:<br/>
+    <input type="text" name="login" value={{ data.login }} maxlength="20"><br/><br/>
+
+    Email:<br/>
+    <input type="text" name="email" value={{ data.email }} maxlength="20"><br/><br/>
+
+    Adm?<br/>
+    <input type="radio" name="id_admin" value="1" {{'checked' if is_open else ''}}> yes<br>
+    <input type="radio" name="id_admin" value="2" {{'checked' if not is_open else ''}}> no<br/><br/>
+
+    Password:<br/>
+    <input type="password" name="password" value={{ data.password }} maxlength="8"><br/><br/>
+
+    Repeat Password:<br/>
+    <input type="password" name="repeat_password" value={{ data.repeat_password }} maxlength="8">
+
+  </fieldset>
+  </div>
+
+<div class="div1">
+  <fieldset>
+    <button type="submit" >SAVE YOUR USER</button>
+    <button type="button" onclick="window.location.href='{{ url_for( 'return_search_user_' ) }}';">RETURN</button>
+  </fieldset>
+  </div>
+</form>
+</form>
+  {% endblock %}
+
+
+

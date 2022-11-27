@@ -1,0 +1,24 @@
+pip install Flask
+
+debug=True - todas as edicooes que serão feitas no site não é necessário ficar parando e iniciando a
+aplicação autormaticamente ao dar uma refresh no site essas alterações já serao exisbidas
+
+render_template: carregar o template, seja as minhas paginas
+
+--versao basica
+from flask import Flask
+
+app = Flask(__name__)
+
+# criar a primeira pagina do site
+# route -- meu dominio /contatos
+# funcao -- o que vc quer exibir naquela pagina
+# @ decorator -- atribuir uma nova funcionalidade, on   de essa funcao será exibida dentro dessa pagina
+@app.route("/")
+def homepage():
+    return "ESTE É MEU PRIMEIRO SITE hgjhgjgjgj"
+
+#  colocar o site no ar
+if __name__ == "__main__":
+    app.run(debug=True)
+--versao basica

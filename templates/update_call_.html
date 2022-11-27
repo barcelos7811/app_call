@@ -1,0 +1,35 @@
+{% extends 'layout_.html' %}
+
+{% block content %}
+<form id="formSave" action="/update_call_/{{data.id}}" method="POST">
+<form id="formEdit" action="/update_call_/<int:id>">
+  <div class="div1">
+  <fieldset>
+    <h2>Edit Call {{ data.id }}</h2>
+    <br/>
+      Call:<br/>
+      <textarea id="story" name="description"
+          rows="5" cols="33" maxlength="100" value="">{{ data.description }}
+      </textarea><br/><br/>
+
+    <div>
+      Status:<br/>
+        <input type="radio" name="id_status" value="1" {{'checked' if is_open else ''}} > Open<br>
+        <input type="radio" name="id_status" value="2" {{'checked' if not is_open else ''}} > Solved<br/><br/>
+    </div>
+
+  </fieldset>
+  </div>
+
+<div class="div1">
+  <fieldset>
+    <button type="submit" >SAVE YOUR CALL</button>
+    <button type="button" onclick="window.location.href='{{ url_for( 'return_search_call_' ) }}';">RETURN</button>
+  </fieldset>
+  </div>
+</form>
+</form>
+  {% endblock %}
+
+
+
